@@ -1,0 +1,325 @@
+/* ======================= RESET BÁSICO ======================= */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* ======================= BODY ======================= */
+body {
+  font-family: Georgia, sans-serif;
+}
+
+/* Rolagem suave para âncoras */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ======================= NAVBAR ======================= */
+.navbar {
+    background-color: rgb(151, 129, 172); /* Cor de fundo */
+    padding: 1rem; /* Espaçamento interno */
+    position: sticky; /* Fixa no topo */
+    top: 0;
+    box-shadow: 0 4px 10px rgba(235, 235, 236, 0.5); /* Sombra leve */
+    max-width: 2000px; /* Largura máxima */
+    z-index: 10; /* Fica acima de outros elementos */
+}
+
+.header-inner-content {
+    max-width: 1300px; /* Limita largura do conteúdo */
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: space-between; /* Espaço entre logo e links */
+}
+
+/* ======================= LOGO ======================= */
+.logo {
+    font-size: 40px; /* Tamanho fixo da logo */
+    font-weight: bold;
+    color: rgb(98, 54, 139); /* Cor do texto do logo */
+}
+
+.logo a {
+    color: inherit; /* Mantém a cor do texto */
+    text-decoration: none; /* Sem sublinhado */
+}
+
+/* ======================= MENU ======================= */
+nav ul {
+    display: flex; /* Links em linha */
+    list-style: none; /* Remove bolinhas */
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 1.5rem; /* Espaço entre links */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+nav ul li:hover {
+    transform: translateY(-5px); /* Sobe um pouco ao passar mouse */
+    font-weight: bold;
+}
+
+nav ul li a {
+    color: rgba(239, 237, 237, 0.97); /* Cor dos links */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s; /* Transição suave */
+}
+
+nav ul li a:hover {
+    color: #fff; /* Cor ao passar mouse */
+    font-weight: bold;
+    transform: translateY(-5px);
+}
+
+/* ======================= ÍCONES ======================= */
+.nav-icon-container {
+    display: flex; /* Ícones em linha */
+    align-items: center;
+}
+
+.nav-icon-container img {
+    width: 30px; /* Tamanho dos ícones */
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+
+/* ======================= CONTEÚDO DO PRODUTO ======================= */
+main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 5rem;
+  gap: 6rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.product-image img {
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 500px;
+}
+
+.product-info h2 {
+  font-size: 1.8rem;
+}
+
+.product-info .rate {
+  color: #a06acc;
+  font-size: 1.2rem;
+}
+
+.product-info .price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #550c6b;
+}
+
+.product-info .description {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Botão de comprar */
+.add-to-cart {
+  background-color: #dc84e4;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  width: fit-content;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.add-to-cart:hover {
+  background-color: #786ce6;
+}
+
+/* ======================= PRODUTOS ======================= */
+.cols-4 {
+    display: grid; /* Grid para produtos */
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 1rem; /* Espaço entre produtos */
+    padding: 2rem 1rem;
+}
+
+.cols-4 img {
+    max-width: 100%; /* Imagem dentro do produto */
+    height: auto;
+}
+
+.product {
+    display: flex;
+    flex-direction: column; /* Nome, preço e estrela em coluna */
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-5px); /* Efeito ao passar mouse */
+}
+
+.product-name {
+    font-weight: 600;
+    margin-top: 0.4rem;
+}
+
+.rate {
+    color: rgb(211, 186, 239); /* Estrelas roxas */
+    font-size: 1.3rem;
+}
+
+.product-price span {
+    font-weight: 600;
+}
+
+/* ======================= TÍTULOS DE SEÇÃO ======================= */
+.section-title {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.subtitle-underline {
+    width: 100px; /* Linha abaixo do título */
+    height: 5px;
+    background: rgb(204, 145, 196);
+    border-radius: 9999px;
+    margin: 8px auto 0 auto;
+}
+
+/* ======================= FOOTER ======================= */
+/* Footer normal e moderno */
+.footer {
+  width: 100%;
+  background-color: rgb(151, 129, 172); /* Cor de fundo */
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* espaçamento entre itens */
+  align-items: center;
+}
+
+.footer-nav {
+  margin-top: 10px; /* pequeno espaço acima dos links */
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.links-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
+  display: flex;
+  gap: 10px; /* espaçamento entre itens da lista */
+}
+
+.links-footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.links-footer ul li a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #f1f1f1;
+}
+
+/* ======================= BALÃO DE INFORMAÇÃO ======================= */
+.composicao-container {
+  margin-top: 10px;
+}
+
+.info-balao {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 15px;
+  color: #a06acc;
+  border: 1.5px solid #a06acc;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.info-balao:hover {
+  background-color: #f9f4fb;
+}
+
+.balao {
+  visibility: hidden;
+  opacity: 0;
+  width: 240px;
+  background-color: #fff;
+  border: 1.5px solid #a06acc;
+  color: #333;
+  text-align: left;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  z-index: 15;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.balao::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+.info-balao:hover .balao {
+  visibility: visible;
+  opacity: 1;
+}

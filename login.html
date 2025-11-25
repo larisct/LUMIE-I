@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMIE</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar show-menu">
+    <div class="header-inner-content">
+        <h1 class="logo"><a href="index.html">LUMIE</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#MAQUIAGEM">MAQUIAGEM</a></li>
+                <li><a href="index.html#BANHO-E-CORPO">BANHO E CORPO</a></li>
+                <li><a href="index.html#PERFUMES">PERFUMES</a></li>
+                <li><a href="index.html#PRESENTES">PRESENTES</a></li>
+            </ul>
+        </nav>
+    <div class="nav-icon-container">
+      <img src="img/noun-search-5884555.png" style="width: 38px; cursor: pointer;" onclick="togglePesquisa()"> 
+      <img src="img/noun-shopping-bag-8129348.png" style="width: 39px; cursor: pointer;" onclick="openSacolaModal()"> 
+      <img src="img/noun-profile-7935018 (1).png" style="width: 38px; cursor: pointer;" onclick="openLoginModal()"> 
+    </div> 
+  </div> 
+</div> 
+
+  <div class="modal">
+    <div class="modal-content">
+      <h1>Crie sua conta</h1>
+
+      <form id="cadastroForm">
+        <div class="input-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="input-group">
+          <label for="emailCadastro">E-mail</label>
+          <input type="email" id="emailCadastro" placeholder="Digite seu e-mail" required>
+        </div>
+
+        <div class="input-group">
+          <label for="senhaCadastro">Senha</label>
+          <input type="password" id="senhaCadastro" placeholder="Digite sua senha" required>
+        </div>
+
+        <div class="input-group">
+          <label for="psw-repeat">Repita a senha</label>
+          <input type="password" id="psw-repeat" placeholder="Repita sua senha" required>
+        </div>
+
+        <div class="input-group">
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" placeholder="Digite seu CEP" maxlength="9" required>
+        </div>
+
+        <div class="input-group">
+          <label for="logradouro">Logradouro</label>
+          <input type="text" id="logradouro" readonly>
+        </div>
+
+        <div class="input-group">
+          <label for="bairro">Bairro</label>
+          <input type="text" id="bairro" readonly>
+        </div>
+
+        <div class="input-group">
+          <label for="numero">Número</label>
+          <input type="text" id="numero" required>
+        </div>
+
+        <div class="input-group">
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" readonly>
+        </div>
+
+        <div class="input-group">
+          <label for="uf">Estado</label>
+          <input type="text" id="uf" readonly>
+        </div>      
+
+        <button type="submit" class="btn-cadastro">Criar conta</button>
+      </form>
+
+    </div>
+  </div>
+
+    <footer class="footer">
+        <div class="footer-content"><br>
+            <p>Nossa missão é oferecer uma experiência de beleza inesquecível, com produtos de alta qualidade e um atendimento que cuida de cada detalhe!</p><br>
+            <p>&copy; 2025 Lumie. Todos os direitos reservados.</p>
+            <nav class="footer-nav">
+                <a>Cupons</a>
+                <a>|</a>
+                <a>Contato</a>
+                <a>|</a>
+                <a>Política de Privacidade</a>
+            </nav>
+        </div>
+    </footer>
+
+  <script>
+    // ======================= CADASTRO =======================
+    document.getElementById("cadastroForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("emailCadastro").value;
+      const senha = document.getElementById("senhaCadastro").value;
+      const senhaRepeat = document.getElementById("psw-repeat").value;
+      const cep = document.getElementById("cep").value;
+      const numero = document.getElementById("numero").value;
+
+      if(senha !== senhaRepeat){
+        alert("As senhas não conferem!");
+        return;
+      }
+
+      const logradouro = document.getElementById("logradouro").value;
+      const bairro = document.getElementById("bairro").value;
+      const cidade = document.getElementById("cidade").value;
+      const uf = document.getElementById("uf").value;
+
+      const usuario = {nome, email, senha, cep, numero, logradouro, bairro, cidade, uf};
+
+      let usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+      usuarios.push(usuario);
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+      alert("Cadastro realizado com sucesso!");
+      window.location.href = "index.html"; // redireciona para o login
+    });
+
+    // ======================= VIA CEP =======================
+    document.getElementById("cep").addEventListener("blur", async function() {
+      let cep = this.value.replace(/\D/g, "");
+
+      if (cep.length !== 8) {
+        alert("CEP inválido!");
+        return;
+      }
+
+      try {
+        let response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        if (!response.ok) throw new Error("Erro na API ViaCEP");
+
+        let data = await response.json();
+        if (data.erro) {
+          alert("CEP não encontrado!");
+          return;
+        }
+
+        document.getElementById("logradouro").value = data.logradouro || "";
+        document.getElementById("bairro").value = data.bairro || "";
+        document.getElementById("cidade").value = data.localidade || "";
+        document.getElementById("uf").value = data.uf || "";
+
+      } catch (e) {
+        console.error("Erro ao consultar ViaCEP:", e);
+        alert("Não foi possível buscar o CEP. Tente novamente.");
+      }
+    });
+  </script>
+
+</body>
+</html>

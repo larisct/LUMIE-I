@@ -1,0 +1,392 @@
+/* ======================= RESET ======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ======================= BODY ======================= */
+body {
+    font-family: Georgia, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* ======================= NAVBAR ======================= */
+.navbar {
+    background-color: rgb(151, 129, 172); /* Cor de fundo */
+    padding: 1rem; /* Espaçamento interno */
+    position: sticky; /* Fixa no topo */
+    top: 0;
+    box-shadow: 0 4px 10px rgba(235, 235, 236, 0.5); /* Sombra leve */
+    max-width: 2000px; /* Largura máxima */
+    z-index: 10; /* Fica acima de outros elementos */
+}
+
+.header-inner-content {
+    max-width: 1300px; /* Limita largura do conteúdo */
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: space-between; /* Espaço entre logo e links */
+}
+
+/* LOGO */
+.logo {
+    color: rgb(98, 54, 139);
+    font-size: 40px;
+}
+
+/* MENU */
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+nav ul li:hover {
+    transform: translateY(-5px);
+    font-weight: bold;
+}
+
+/* ======================= ÍCONES ======================= */
+.nav-icon-container {
+    display: flex; /* Ícones em linha */
+    align-items: center;
+}
+
+.nav-icon-container img {
+    width: 30px; /* Tamanho dos ícones */
+    cursor: pointer;
+    margin-left: 1rem;
+           
+}
+
+/* =================ÍCONES - Barra de Pesquisa ========= */
+.search-box {
+    display: flex;
+    background: #c3b7f0;
+    height: 40px;
+    padding: 10px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    right: 21%;
+}
+
+.search-txt {
+border: none;
+background: none;
+outline: none;
+padding: 0;
+font-size: 16px;
+line-height: 40px;
+width: 0;
+transition: .5s;
+
+}
+
+.search-btn {
+width: 30px;
+height: 30px;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+
+}
+
+/* QUANDO PASSAR O MOUSE AUMENTA A BARRA DE BUSCA */
+.search-box:hover > .search-txt {
+width: 180px; /* TAMANHODA BARRA DE PESQUISA */
+padding-left: 20px;
+right:0;
+
+}
+
+
+/* CORES MAQUINAGEM BANHO E CORPO PERFUMES E PRESENTES */
+nav ul li a {
+    color: rgba(239, 237, 237, 0.97);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #fff;
+    transform: translateY(-5px);
+    font-weight: bold;
+}
+
+
+/* ======================= HEADER ======================= */
+header {
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: radial-gradient(rgba(253, 248, 243), #c39bc0);
+    text-align: center;
+}
+
+.header-bottom-side-left h3,
+.header-bottom-side-left p {
+    text-align: center;
+}
+
+.header-bottom-side-left p {
+    line-height: 1.5rem;
+    margin-bottom: 0.9rem;
+}
+
+/* ======================= BANNER ======================= */
+.gray-background {
+    background-color: #dfc0e7;
+}
+
+.cols-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cols-3 img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ======================= PRODUTOS ======================= */
+.cols-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem 1rem;
+    gap: 1rem;
+}
+
+.cols-4 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product-name {
+    font-weight: 600;
+    margin-top: 0.4rem;
+}
+
+.rate {
+    color: rgb(211, 186, 239);
+    font-size: 1.3rem;
+}
+
+.product-price span {
+    font-weight: 600;
+}
+
+/* ======================= TÍTULOS DE SEÇÃO ======================= */
+.section-title {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.subtitle-underline {
+    width: 100px;
+    height: 5px;
+    background: rgb(204, 145, 196);
+    margin: 8px auto 0;
+    border-radius: 9999px;
+}
+
+/* ======================= FOOTER ======================= */
+.footer {
+    width: 100%;
+    background-color: rgb(151, 129, 172);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.footer-nav a,
+.links-footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-nav a:hover,
+.links-footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.links-footer ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+copyright {
+    font-size: 12px;
+    color: #f1f1f1;
+    margin-top: 5px;
+}
+
+/* ======================= SCROLL SUAVE ======================= */
+html {
+    scroll-behavior: smooth;
+}
+
+#MAQUIAGEM,
+#BANHO-E-CORPO,
+#PERFUMES,
+#PRESENTES {
+    scroll-margin-top: 130px;
+    padding-top: 20px;
+}
+
+/* ======================= MEDIA QUERIES ======================= */
+@media (max-width: 800px) {
+    .cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar ul {
+        flex-direction: column;
+    }
+}
+
+/* ======================= MODAL LOGIN/CADASTRO ======================= */
+.modal {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 350px;
+    max-width: 90%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    animation: aparecer 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #444;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Botões */
+.btn-login,
+.btn-cadastro {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #cb71dd;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover,
+.btn-cadastro:hover {
+    background: #c540d6;
+}
+
+/* Links internos */
+.signup-link,
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signup-link a,
+.login-link a {
+    color: #5f2b64c0;
+    text-decoration: none;
+}
+
+.signup-link a:hover,
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* ======================= BARRA DE PESQUISA ======================= */
